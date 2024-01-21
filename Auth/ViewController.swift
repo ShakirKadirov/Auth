@@ -35,6 +35,8 @@ class ViewController: UIViewController {
     
     lazy var emailTextField: UITextField = {
         $0.placeholder = "Email"
+        $0.leftView = ofsetView()
+        $0.leftViewMode = .always
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 25
         return $0
@@ -42,6 +44,8 @@ class ViewController: UIViewController {
     
     lazy var passwordTextField: UITextField = {
         $0.placeholder = "Password"
+        $0.leftView = ofsetView()
+        $0.leftViewMode = .always
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 25
         return $0
@@ -54,6 +58,11 @@ class ViewController: UIViewController {
         return $0
     }(UIButton(frame: CGRect(x: 31, y: passwordTextField.frame.origin.y + 60, width: view.frame.width - 62, height: 50)))
 
+    func ofsetView() -> UIView {
+        let ofset = UIView()
+        ofset.frame = CGRect(x: 0, y: 0, width: 10, height: 54)
+        return ofset
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
